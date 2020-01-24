@@ -58,6 +58,10 @@ async def pedra(ctx):
 async def blizz(ctx):
     await tocaraudio(ctx, audio_random_blizz())
 
+@client.command(pass_context=True)
+async def bfa(ctx):
+    await tocaraudio(ctx, 'fimbfa.mp3')
+
 @client.event
 async def on_ready():
     print('Bot')
