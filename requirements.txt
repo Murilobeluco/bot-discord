@@ -1,0 +1,8 @@
+discord.py
+discord.py[voice]
+opuslib
+unicodedata2==11.0.0
+json_store_client
+requests
+ffmpeg
+pynacl

@@ -1,0 +1,5 @@
+Como instalar/executa o bot
+Python 3.7
+instalar as dependencias do bot: pip install -r requirements.txt
+configurar variavel de ambiente TOKEN com a info do bot
+executar no linux: nohup /CAMNINHODOBOT/bot.py &
