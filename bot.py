@@ -44,7 +44,6 @@ async def sheriff(ctx):
         ctx.message, sheriff=desenho(random_emoji()))
     await ctx.send(mensagem)
 
-
 @client.command(pass_context=True)
 async def dias(ctx):
     mensagem = quantos_dias()
@@ -62,6 +61,14 @@ async def blizz(ctx):
 async def bfa(ctx):
     await tocaraudio(ctx, 'fimbfa.mp3')
 
+@client.command(pass_context=True)
+async def maedacarol(ctx):
+    await tocaraudio(ctx, 'obrigacao.mp3')
+
+@client.command()
+async def ping(ctx):
+    await ctx.send('Ping: {0} ms'.format(round(client.latency, 1)))
+
 @client.event
 async def on_ready():
     print('Bot')
@@ -71,10 +78,6 @@ async def on_ready():
 
     activity = discord.Game(name="World of Warcraft")
     await client.change_presence(activity=activity)
-
-@client.command(pass_context=True)
-async def maedacarol(ctx):
-    await tocaraudio(ctx, 'obrigacao.mp3')
 
 async def rodando():
     await client.wait_until_ready()
