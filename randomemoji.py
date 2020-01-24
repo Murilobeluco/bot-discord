@@ -63,7 +63,7 @@ def audio_random_pedra():
     
 def audio_random_blizz():
     import random
-    audio = ['infoblizzard.mp3', 'wowbug.mp3']
+    audio = ['infoblizzard.mp3', 'wowbug.mp3', 'wowbugado.mp3']
     escolha = random.choice(audio)
     print(escolha)
     return escolha
