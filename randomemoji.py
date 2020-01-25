@@ -58,14 +58,12 @@ def audio_random_pedra():
     import random
     audio = ['caralhovamosfazerpedra.mp3', 'cadepedra.mp3', 'vamosfazerpedra.mp3']
     escolha = random.choice(audio)
-    print(escolha)
     return escolha
     
 def audio_random_blizz():
     import random
     audio = ['infoblizzard.mp3', 'wowbug.mp3', 'wowbugado.mp3']
     escolha = random.choice(audio)
-    print(escolha)
     return escolha
     
 def random_emoji(unicode_version = 6):

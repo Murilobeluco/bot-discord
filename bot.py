@@ -12,31 +12,33 @@ BOT_PREFIX = ("?", "!")
 client = Bot(command_prefix=BOT_PREFIX)
 
 if not discord.opus.is_loaded():
-    discord.opus.load_opus('opus')
+    discord.opus.load_opus("opus")
 
 def lervariavel():
     import os
-    variavel = os.environ['TOKEN']
+    variavel = os.environ["TOKEN"]
     
     if not variavel:
-         raise Exception('Configurar variavel de ambinete TOKEN')
+         raise Exception("Configurar variavel de ambinete TOKEN")
          exit()
     
     return variavel
+   
+async def tocaraudio(ctx, audio=""):
+    if ctx.voice_client is None:
+        if not ctx.author.voice is None:
+            vc = await ctx.author.voice.channel.connect()
+            source = discord.FFmpegPCMAudio(source=audio)
+            ctx.voice_client.play(source)
     
-async def tocaraudio(ctx, audio=''):
-    try:
-        channel = client.get_channel(ctx.author.voice.channel.id)
-        vc = await channel.connect()
-        
-        vc.play(discord.FFmpegPCMAudio(source=audio))
-        
-        while vc.is_playing():
-            await asyncio.sleep(1)
-        
-        await vc.disconnect()
-    except:
-        await ctx.send('Por favor entre em um canal de audio.')
+            while vc.is_playing():
+                await asyncio.sleep(1)
+    
+            await vc.disconnect()
+        else:
+            await ctx.send("Por favor entre em um canal de áudio para chamar o bot.")
+    else:
+        await ctx.send("Bot já conectado em uma sala.")
      
 @client.command(pass_context=True)
 async def sheriff(ctx):
@@ -59,22 +61,18 @@ async def blizz(ctx):
 
 @client.command(pass_context=True)
 async def bfa(ctx):
-    await tocaraudio(ctx, 'fimbfa.mp3')
+    await tocaraudio(ctx, "fimbfa.mp3")
 
 @client.command(pass_context=True)
 async def maedacarol(ctx):
-    await tocaraudio(ctx, 'obrigacao.mp3')
-
-@client.command()
-async def ping(ctx):
-    await ctx.send('Ping: {0} ms'.format(round(client.latency, 1)))
+    await tocaraudio(ctx, "obrigacao.mp3")
 
 @client.event
 async def on_ready():
-    print('Bot')
+    print("Bot")
     print(client.user.name)
     print(client.user.id)
-    print('------')
+    print("------")
 
     activity = discord.Game(name="World of Warcraft")
     await client.change_presence(activity=activity)
@@ -84,18 +82,18 @@ async def rodando():
     channel = client.get_channel(437937862223069185)
 
     while not client.is_closed():
-        nomes = ['Murilobeluco', 'Heartmelody', 'Enocc']
+        nomes = ["Murilobeluco", "Heartmelody", "Enocc"]
 
-        retorno = ''
+        retorno = ""
         for val in nomes:
             result = buscarLogs(val)
             if len(result) >= 1:
                 for itens in result:
-                    retorno = retorno + '\n' + itens
+                    retorno = retorno + "\n" + itens
 
         if retorno:
             await channel.send(retorno)
-            retorno = ''
+            retorno = ""
 
         await asyncio.sleep(5)
 
