@@ -67,6 +67,10 @@ async def bfa(ctx):
 async def maedacarol(ctx):
     await tocaraudio(ctx, "obrigacao.mp3")
 
+@client.command(pass_context=True)
+async def calma(ctx):
+    await tocaraudio(ctx, "calma.mp3")
+
 @client.event
 async def on_ready():
     print("Bot")
