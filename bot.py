@@ -71,6 +71,10 @@ async def maedacarol(ctx):
 async def calma(ctx):
     await tocaraudio(ctx, "calma.mp3")
 
+@client.command(pass_context=True)
+async def nerfa(ctx):
+    await tocaraudio(ctx, "broken.mp3")
+
 @client.event
 async def on_ready():
     print("Bot")
