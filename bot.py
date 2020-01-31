@@ -75,6 +75,10 @@ async def calma(ctx):
 async def nerfa(ctx):
     await tocaraudio(ctx, "broken.mp3")
 
+@client.command(pass_context=True)
+async def amanha(ctx):
+    await tocaraudio(ctx, "amanha.mp3")
+
 @client.event
 async def on_ready():
     print("Bot")
