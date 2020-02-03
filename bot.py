@@ -84,6 +84,10 @@ async def livros(ctx):
 	await tocaraudio(ctx, "livros.mp3")
 
 @client.command(pass_context=True)
+async def valkyr(ctx):
+	await tocaraudio(ctx, "mare.mp3")
+
+@client.command(pass_context=True)
 async def ping(ctx):
 	em = discord.Embed()
 	em.title ='Ping:'
