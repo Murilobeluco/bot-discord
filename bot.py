@@ -61,39 +61,39 @@ async def blizz(ctx):
 
 @client.command(pass_context=True)
 async def bfa(ctx):
-	await tocaraudio(ctx, "fimbfa.mp3")
+	await tocaraudio(ctx, "audios/fimbfa.mp3")
 
 @client.command(pass_context=True)
 async def maedacarol(ctx):
-	await tocaraudio(ctx, "obrigacao.mp3")
+	await tocaraudio(ctx, "audios/obrigacao.mp3")
 
 @client.command(pass_context=True)
 async def calma(ctx):
-	await tocaraudio(ctx, "calma.mp3")
+	await tocaraudio(ctx, "audios/calma.mp3")
 
 @client.command(pass_context=True)
 async def nerfa(ctx):
-	await tocaraudio(ctx, "broken.mp3")
+	await tocaraudio(ctx, "audios/broken.mp3")
 
 @client.command(pass_context=True)
 async def amanha(ctx):
-	await tocaraudio(ctx, "amanha.mp3")
+	await tocaraudio(ctx, "audios/amanha.mp3")
 
 @client.command(pass_context=True)
 async def livros(ctx):
-	await tocaraudio(ctx, "livros.mp3")
+	await tocaraudio(ctx, "audios/livros.mp3")
 
 @client.command(pass_context=True)
 async def valkyr(ctx):
-	await tocaraudio(ctx, "mare.mp3")
+	await tocaraudio(ctx, "audios/mare.mp3")
 
 @client.command(pass_context=True)
 async def oak(ctx):
-	await tocaraudio(ctx, "oak.mp3")
+	await tocaraudio(ctx, "audios/oak.mp3")
 
 @client.command(pass_context=True)
 async def xixizinho(ctx):
-	await tocaraudio(ctx, "xixizinho.mp3")
+	await tocaraudio(ctx, "audios/xixizinho.mp3")
 
 @client.command(pass_context=True)
 async def ping(ctx):
