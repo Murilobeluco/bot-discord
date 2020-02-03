@@ -21,7 +21,6 @@ def lervariavel():
 	
 	if not variavel:
 		 raise Exception("Configurar variavel de ambinete TOKEN")
-		 exit()
 	
 	return variavel
    
@@ -79,6 +78,10 @@ async def nerfa(ctx):
 @client.command(pass_context=True)
 async def amanha(ctx):
 	await tocaraudio(ctx, "amanha.mp3")
+
+@client.command(pass_context=True)
+async def livros(ctx):
+	await tocaraudio(ctx, "livros.mp3")
 
 @client.command(pass_context=True)
 async def ping(ctx):
