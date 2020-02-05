@@ -43,29 +43,11 @@ EMOJI_RANGES_UNICODE = {
 
 NO_NAME_ERROR = '(No name found for this codepoint)'
 
-def quantos_dias():
-	from datetime import datetime
+def rng(lista):
 	import random
-	nomes = ['Biroliro','Bostonaro','LiroBiro', 'Bolonoro', 'Boldonaro', 'Bobonaro', 'Bolinaro', 'Bololonaro', 'Laranja', 'Coiso', 'Bozo']
-	now = datetime.now()
-
-	d2 = datetime.strptime('2022-12-31', '%Y-%m-%d')
-
-	quantidade_dias = abs((now - d2).days)
-	return "Ainda vamos ter que aguentar o {nome} por mais {dias} dias :point_right: :point_right: :flag_br:".format(dias=quantidade_dias, nome=random.choice(nomes))
-
-def audio_random_pedra():
-	import random
-	audio = ['caralhovamosfazerpedra.mp3', 'cadepedra.mp3', 'vamosfazerpedra.mp3']
-	escolha = random.choice(audio)
+	escolha = random.choice(lista)
 	return escolha
-	
-def audio_random_blizz():
-	import random
-	audio = ['infoblizzard.mp3', 'wowbug.mp3', 'wowbugado.mp3']
-	escolha = random.choice(audio)
-	return escolha
-	
+		
 def random_emoji(unicode_version = 6):
 	if unicode_version in EMOJI_RANGES_UNICODE:
 		emoji_ranges = EMOJI_RANGES_UNICODE[unicode_version]
