@@ -110,6 +110,11 @@ async def xixizinho(ctx):
 	await tocaraudio(ctx, 'audios/xixizinho.mp3')
 
 @client.command(pass_context=True)
+async def tosco(ctx):
+	'toca um audio com a fala da boss Bella de lower Karazhan!'
+	await tocaraudio(ctx, 'audios/tosco.mp3')
+
+@client.command(pass_context=True)
 async def ping(ctx):
 	'mostra o ping do bot com o servidor do discord'
 	await ctx.send(embed=mensagem_formatada(titulo='Ping:', descricao=f'{client.ws.latency * 1000:.2f} ms'))
