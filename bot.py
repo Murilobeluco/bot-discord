@@ -136,28 +136,29 @@ async def on_ready():
 	activity = discord.Game(name='World of Warcraft')
 	await client.change_presence(activity=activity)
 
-# async def rodando():
-# 	await client.wait_until_ready()
-# 	channel = client.get_channel(437937862223069185)
+async def rodando():
+	await client.wait_until_ready()
+	channel = client.get_channel(437937862223069185)
 
-# 	while not client.is_closed():
-# 		nomes = ['Murilobeluco', 'Heartmelody', 'Enocc']
+	if channel is not None:
+		while not client.is_closed():
+			nomes = ['Murilobeluco', 'Heartmelody', 'Enocc']
 
-# 		retorno = ''
-# 		for val in nomes:
-# 			result = buscarLogs(val)
-# 			if len(result) >= 1:
-# 				for itens in result:
-# 					retorno = retorno + '\n' + itens
+			retorno = ''
+			for val in nomes:
+				result = buscarLogs(val)
+				if len(result) >= 1:
+					for itens in result:
+						retorno = retorno + '\n' + itens
 
-# 		if retorno:
-# 			await channel.send(retorno)
-# 			retorno = ''
+			if retorno:
+				await channel.send(retorno)
+				retorno = ''
 
-# 		await asyncio.sleep(5)
+			await asyncio.sleep(5)
 
 def main():
-	# client.bg_task = client.loop.create_task(rodando())
+	client.bg_task = client.loop.create_task(rodando())
 	client.run(lervariavel())
 
 if __name__ == '__main__':
