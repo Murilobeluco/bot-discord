@@ -155,7 +155,7 @@ async def rodando():
 				await channel.send(retorno)
 				retorno = ''
 
-			await asyncio.sleep(10)
+			await asyncio.sleep(600)
 
 def main():
 	client.bg_task = client.loop.create_task(rodando())

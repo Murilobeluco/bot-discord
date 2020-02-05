@@ -20,14 +20,13 @@ def iniciarlizarDb(nome):
 
 	return db
 
-
 def texto(dados):
 	texto = ':newspaper: Log:{log} \towner:{owner} \tData:{data}'.format(
 		log=ENDERECOLOG.format(reportid=dados['id']),
 		owner=dados['owner'],
 		data=converterData(dados['end']))
-	return texto
 
+	return texto
 
 def buscarLogs(nome):
 	url = SITE.format(usuario=nome)
@@ -40,7 +39,7 @@ def buscarLogs(nome):
 	listadb = []
 	listalogs = []
 
-	#print(db['ultimos'])
+	print(db['ultimos'])
 
 	for itens in data:
 		listadb.append(itens['id'])
