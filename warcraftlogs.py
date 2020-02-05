@@ -40,7 +40,7 @@ def buscarLogs(nome):
 	listadb = []
 	listalogs = []
 
-	print(db['ultimos'])
+	#print(db['ultimos'])
 
 	for itens in data:
 		listadb.append(itens['id'])
