@@ -13,9 +13,6 @@ BOT_PREFIX = ('?', '!')
 client = Bot(command_prefix=BOT_PREFIX)
 #client.remove_command('help')
 
-if not discord.opus.is_loaded():
-	discord.opus.load_opus('opus')
-
 def lervariavel():
 	import os
 	variavel = os.environ['TOKEN']
