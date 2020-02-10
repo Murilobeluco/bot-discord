@@ -7,6 +7,7 @@ from warcraftlogs import buscarLogs
 import asyncio
 import discord
 import ffmpeg
+import os
 
 BOT_PREFIX = ('?', '!')
 
@@ -114,6 +115,9 @@ async def tosco(ctx):
 @client.command(pass_context=True)
 async def tururu(ctx):
 	'toca a musica triste do naruto'
+	with open('img/naruto.png', 'rb') as fp:
+		await ctx.send(file=discord.File(fp, 'naruto.png'))
+
 	await tocaraudio(ctx, 'audios/tururu.mp3')
 
 @client.command(pass_context=True)
