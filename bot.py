@@ -113,12 +113,19 @@ async def tosco(ctx):
 	await tocaraudio(ctx, 'audios/tosco.mp3')
 
 @client.command(pass_context=True)
+async def dorime(ctx):
+	'toca dorime'
+	await tocaraudio(ctx, 'audios/dorime.mp3')
+	with open('img/naruto.png', 'rb') as fp:
+		await ctx.send(file=discord.File(fp, 'dorime.png'))
+
+@client.command(pass_context=True)
 async def tururu(ctx):
 	'toca a musica triste do naruto'
-	with open('img/naruto.png', 'rb') as fp:
-		await ctx.send(file=discord.File(fp, 'naruto.png'))
-
 	await tocaraudio(ctx, 'audios/tururu.mp3')
+	with open('img/naruto.png', 'rb') as fp:
+		message = await ctx.send(file=discord.File(fp, 'naruto.png'))
+		await message.add_reaction('\N{LOUDLY CRYING FACE}')
 
 @client.command(pass_context=True)
 async def ping(ctx):
