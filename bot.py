@@ -116,7 +116,7 @@ async def tosco(ctx):
 async def dorime(ctx):
 	'toca dorime'
 	await tocaraudio(ctx, 'audios/dorime.mp3')
-	with open('img/naruto.png', 'rb') as fp:
+	with open('img/dorime.png', 'rb') as fp:
 		await ctx.send(file=discord.File(fp, 'dorime.png'))
 
 @client.command(pass_context=True)
