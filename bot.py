@@ -2,8 +2,9 @@
 from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
-from randomemoji import desenho, random_emoji, rng
-from warcraftlogs import buscarLogs
+from randomemoji import desenho, random_emoji
+from util import rng, mensagem_formatada
+from warcraftlogs import buscarLogs, atualizar_contador
 import asyncio
 import discord
 import ffmpeg
@@ -22,24 +23,19 @@ def lervariavel():
 		 raise Exception('Configurar variavel de ambinete TOKEN')
 	
 	return variavel
-
-def mensagem_formatada(titulo='',descricao=''):
-	em = discord.Embed()
-	em.title = titulo
-	em.description = descricao
-	return em
-		
+	
 async def tocaraudio(ctx, audio=''):
 	if ctx.voice_client is None:
 		if not ctx.author.voice is None:
 			vc = await ctx.author.voice.channel.connect()
 			source = discord.FFmpegPCMAudio(source=audio)
 			ctx.voice_client.play(source)
-	
+			
 			while vc.is_playing():
 				await asyncio.sleep(1)
 	
 			await vc.disconnect()
+			atualizar_contador(ctx.message.content)
 		else:
 			await ctx.send('Por favor entre em um canal de áudio para chamar o bot.')
 	else:

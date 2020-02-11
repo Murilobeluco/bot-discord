@@ -12,10 +12,10 @@ def converterData(dataepoch):
 	import time
 	return time.strftime("%d/%m/%Y %H:%M:%S", time.localtime(dataepoch / 1000))
 
-def iniciarlizarDb(nome):
+def iniciarlizarDb(nome, chave):
 	db = jsonstore.retrieve(nome)
 	if not db:
-		jsonstore.store(nome, {'ultimos': '0'})
+		jsonstore.store(nome, {chave : '0'})
 		db = jsonstore.retrieve(nome)
 
 	return db
@@ -28,18 +28,24 @@ def texto(dados):
 
 	return texto
 
+def atualizar_contador(comando):
+	db = iniciarlizarDb(comando, 'vezes')
+	
+	contador = int(db['vezes']) + 1
+	jsonstore.store(comando, {'vezes' : contador})
+
 def buscarLogs(nome):
 	url = SITE.format(usuario=nome)
 	response = requests.get(url)
 	data = []
 	data = response.json()
 
-	db = iniciarlizarDb(nome)
+	db = iniciarlizarDb(nome, 'ultimos')
 
 	listadb = []
 	listalogs = []
 
-	print(db['ultimos'])
+	#print(db['ultimos'])
 
 	for itens in data:
 		listadb.append(itens['id'])
@@ -47,7 +53,5 @@ def buscarLogs(nome):
 			listalogs.append(texto(itens))
 
 	jsonstore.store(nome, {'ultimos': listadb})
-	if len(listalogs) >= 1:
-		print('executou: ' + str(listalogs))
-
+	
 	return listalogs
