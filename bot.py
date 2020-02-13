@@ -3,14 +3,14 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
 from randomemoji import desenho, random_emoji
-from util import rng, mensagem_formatada
+from util import *
 from warcraftlogs import buscarLogs, atualizar_contador
 import asyncio
 import discord
 import ffmpeg
 import os
 
-BOT_PREFIX = ('?', '!')
+BOT_PREFIX = ('!')
 
 client = Bot(command_prefix=BOT_PREFIX)
 #client.remove_command('help')
@@ -35,7 +35,7 @@ async def tocaraudio(ctx, audio=''):
 				await asyncio.sleep(1)
 	
 			await vc.disconnect()
-			atualizar_contador(ctx.message.content)
+			atualizar_contador(BOT_PREFIX + ctx.command.name)
 		else:
 			await ctx.send('Por favor entre em um canal de áudio para chamar o bot.')
 	else:
@@ -122,6 +122,12 @@ async def tururu(ctx):
 	with open('img/naruto.png', 'rb') as fp:
 		message = await ctx.send(file=discord.File(fp, 'naruto.png'))
 		await message.add_reaction('\N{LOUDLY CRYING FACE}')
+
+@client.command(pass_context=True)
+async def choras(ctx, arg1):
+	arquivo = cria_audio(arg1[:20])
+	await tocaraudio(ctx, arquivo)
+	await deleta_arquivo(arquivo)
 
 @client.command(pass_context=True)
 async def ping(ctx):
