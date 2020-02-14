@@ -129,6 +129,13 @@ async def gaucho(ctx):
 	await tocaraudio(ctx, 'audios/gaucho.mp3')
 
 @client.command(pass_context=True)
+async def saizica(ctx):
+	'toca um audio da boss galindra de lower karazhan'
+	await tocaraudio(ctx, 'audios/zica.mp3')
+	with open('img/titus.gif', 'rb') as fp:
+		await ctx.send(file=discord.File(fp, 'titus.gif'))
+
+@client.command(pass_context=True)
 async def choras(ctx, arg1):
 	arquivo = cria_audio(arg1[:20])
 	await tocaraudio(ctx, arquivo)
