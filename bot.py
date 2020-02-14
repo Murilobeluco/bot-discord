@@ -124,6 +124,11 @@ async def tururu(ctx):
 		await message.add_reaction('\N{LOUDLY CRYING FACE}')
 
 @client.command(pass_context=True)
+async def gaucho(ctx):
+	'toca um audio de um gaucho falando verdades sobre armandinho'
+	await tocaraudio(ctx, 'audios/gaucho.mp3')
+
+@client.command(pass_context=True)
 async def choras(ctx, arg1):
 	arquivo = cria_audio(arg1[:20])
 	await tocaraudio(ctx, arquivo)
@@ -138,8 +143,8 @@ async def ping(ctx):
 async def on_command_error(ctx, exception):
 	if isinstance(exception, commands.CommandNotFound):
 		await ctx.send(embed=mensagem_formatada(titulo='\N{WARNING SIGN}Erro:', descricao=f'Comando: {ctx.message.content} não encontrado.'))
-	else:
-		await ctx.send(exception)
+	elif isinstance(exception, commands.MissingRequiredArgument):
+		await ctx.send('O comando precisa de um parametro')
 
 @client.event
 async def on_ready():
