@@ -69,11 +69,6 @@ async def maedacarol(ctx):
 	await tocaraudio(ctx, rng(['audios/obrigacao.mp3', 'audios/maedacarol.mp3']))
 
 @client.command(pass_context=True)
-async def calma(ctx):
-	'toca um audio para acalmar o Itália'
-	await tocaraudio(ctx, 'audios/calma.mp3')
-
-@client.command(pass_context=True)
 async def nerfa(ctx):
 	'toca um audio pedindo para nerfar o que é quebrado!'
 	await tocaraudio(ctx, 'audios/broken.mp3')
