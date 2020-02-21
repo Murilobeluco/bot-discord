@@ -137,6 +137,11 @@ async def choras(ctx, arg1):
 	await deleta_arquivo(arquivo)
 
 @client.command(pass_context=True)
+async def drogas(ctx):
+	'toca um audio avisando que chegou drogas'
+	await tocaraudio(ctx, 'audios/droga.mp3')
+
+@client.command(pass_context=True)
 async def ping(ctx):
 	'mostra o ping do bot com o servidor do discord'
 	await ctx.send(embed=mensagem_formatada(titulo='Ping:', descricao=f'{client.ws.latency * 1000:.2f} ms'))
