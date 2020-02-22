@@ -142,6 +142,11 @@ async def drogas(ctx):
 	await tocaraudio(ctx, 'audios/droga.mp3')
 
 @client.command(pass_context=True)
+async def heart(ctx):
+	'toca um audio em homenagem ao Heart'
+	await tocaraudio(ctx, 'audios/heart.mp3')
+
+@client.command(pass_context=True)
 async def ping(ctx):
 	'mostra o ping do bot com o servidor do discord'
 	await ctx.send(embed=mensagem_formatada(titulo='Ping:', descricao=f'{client.ws.latency * 1000:.2f} ms'))
