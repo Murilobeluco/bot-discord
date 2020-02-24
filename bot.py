@@ -9,6 +9,8 @@ import asyncio
 import discord
 import ffmpeg
 import os
+import time
+import psutil
 
 BOT_PREFIX = ('!')
 
@@ -149,7 +151,36 @@ async def heart(ctx):
 @client.command(pass_context=True)
 async def ping(ctx):
 	'mostra o ping do bot com o servidor do discord'
-	await ctx.send(embed=mensagem_formatada(titulo='Ping:', descricao=f'{client.ws.latency * 1000:.2f} ms'))
+	before = time.monotonic()
+	before_ws = int(round(client.latency * 1000, 1))
+	message = await ctx.send("🏓 Pong")
+	ping = (time.monotonic() - before) * 1000
+	await message.edit(content=f"🏓 WS: {before_ws}ms  |  REST: {int(ping)}ms")
+
+@client.command(aliases=['joinme', 'join', 'botinvite'])
+async def invite(ctx):
+	'gera um link para convite do bot'
+	await ctx.author.send(f"**{ctx.author.name}**, Use essa URL para me convidar para o seu servidor\n<{discord.utils.oauth_url(client.user.id)}>")
+
+@client.command(aliases=['info', 'stats', 'status'])
+async def about(ctx):
+	'informação sobre o bot'
+	process = psutil.Process(os.getpid())
+	ramUsage = process.memory_full_info().rss / 1024**2
+	avgmembers = round(len(client.users) / len(client.guilds))
+
+	embedColour = discord.Embed.Empty
+	if hasattr(ctx, 'guild') and ctx.guild is not None:
+		embedColour = ctx.me.top_role.colour
+
+	embed = discord.Embed(colour=embedColour)
+	embed.set_thumbnail(url=ctx.bot.user.avatar_url)
+	embed.add_field(name="Library", value="discord.py - Versão {versao}".format(versao=discord.__version__), inline=True)
+	embed.add_field(name="Servidores", value=f"{len(ctx.bot.guilds)} (avg: {avgmembers} users/server)", inline=True)
+	embed.add_field(name="Comandos", value=len([x.name for x in client.commands]), inline=True)
+	embed.add_field(name="RAM", value=f"{ramUsage:.2f} MB", inline=True)
+
+	await ctx.send(content=f"ℹ Informações sobre o Bot: **{ctx.bot.user}**", embed=embed)
 
 @client.event
 async def on_command_error(ctx, exception):

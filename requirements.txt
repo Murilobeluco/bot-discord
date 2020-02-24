@@ -6,3 +6,4 @@ json_store_client
 requests
 ffmpeg
 pynacl
+psutil
