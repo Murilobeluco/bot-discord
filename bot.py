@@ -169,16 +169,12 @@ async def about(ctx):
 	ramUsage = process.memory_full_info().rss / 1024**2
 	avgmembers = round(len(client.users) / len(client.guilds))
 
-	embedColour = discord.Embed.Empty
-	if hasattr(ctx, 'guild') and ctx.guild is not None:
-		embedColour = ctx.me.top_role.colour
-
-	embed = discord.Embed(colour=embedColour)
+	embed = discord.Embed(color=0xbe2f2f, title=f"**__Status do Bot__**")
 	embed.set_thumbnail(url=ctx.bot.user.avatar_url)
-	embed.add_field(name="Library", value="discord.py - Versão {versao}".format(versao=discord.__version__), inline=True)
-	embed.add_field(name="Servidores", value=f"{len(ctx.bot.guilds)} (avg: {avgmembers} users/server)", inline=True)
-	embed.add_field(name="Comandos", value=len([x.name for x in client.commands]), inline=True)
-	embed.add_field(name="RAM", value=f"{ramUsage:.2f} MB", inline=True)
+	embed.add_field(name="📙 Library", value="discord.py - Versão {versao}".format(versao=discord.__version__), inline=True)
+	embed.add_field(name="🖥️ Servidores", value=f"{len(ctx.bot.guilds)} (avg: {avgmembers} users/server)", inline=True)
+	embed.add_field(name="📜 Comandos", value=len([x.name for x in client.commands]), inline=True)
+	embed.add_field(name="💾 RAM", value=f"{ramUsage:.2f} MB", inline=True)
 
 	await ctx.send(content=f"ℹ Informações sobre o Bot: **{ctx.bot.user}**", embed=embed)
 
