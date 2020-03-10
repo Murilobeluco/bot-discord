@@ -7,3 +7,4 @@ requests
 ffmpeg
 pynacl
 psutil
+gTTS

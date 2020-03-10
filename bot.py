@@ -217,7 +217,7 @@ async def rodando():
 			await asyncio.sleep(600)
 
 def main():
-	client.bg_task = client.loop.create_task(rodando())
+	#client.bg_task = client.loop.create_task(rodando())
 	client.run(lervariavel())
 
 if __name__ == '__main__':
