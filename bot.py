@@ -151,7 +151,7 @@ async def heart(ctx):
 @client.command(pass_context=True)
 async def turtle(ctx):
 	'toca a musica A Turtle Made It to the Water!'
-	# await tocaraudio(ctx, 'audios/turtle.mp3')
+	await tocaraudio(ctx, 'audios/turtle.mp3')
 	await ctx.send(turtle_emoji())
 
 @client.command(pass_context=True)
