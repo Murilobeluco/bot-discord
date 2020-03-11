@@ -184,12 +184,12 @@ async def about(ctx):
 
 	await ctx.send(content=f"ℹ Informações sobre o Bot: **{ctx.bot.user}**", embed=embed)
 
-# @client.event
-# async def on_command_error(ctx, exception):
-# 	if isinstance(exception, commands.CommandNotFound):
-# 		await ctx.send(embed=mensagem_formatada(titulo='\N{WARNING SIGN}Erro:', descricao=f'Comando: {ctx.message.content} não encontrado.'))
-# 	elif isinstance(exception, commands.MissingRequiredArgument):
-# 		await ctx.send('O comando precisa de um parametro')
+@client.event
+async def on_command_error(ctx, exception):
+	if isinstance(exception, commands.CommandNotFound):
+		await ctx.send(embed=mensagem_formatada(titulo='\N{WARNING SIGN}Erro:', descricao=f'Comando: {ctx.message.content} não encontrado.'))
+	elif isinstance(exception, commands.MissingRequiredArgument):
+		await ctx.send('O comando precisa de um parametro')
 
 @client.event
 async def on_ready():
