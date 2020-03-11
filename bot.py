@@ -2,7 +2,7 @@
 from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
-from randomemoji import desenho, random_emoji
+from randomemoji import desenho, random_emoji, turtle_emoji
 from util import *
 from warcraftlogs import buscarLogs, atualizar_contador
 import asyncio
@@ -37,7 +37,7 @@ async def tocaraudio(ctx, audio=''):
 				await asyncio.sleep(1)
 	
 			await vc.disconnect()
-			atualizar_contador(BOT_PREFIX + ctx.command.name)
+			# atualizar_contador(BOT_PREFIX + ctx.command.name)
 		else:
 			await ctx.send('Por favor entre em um canal de áudio para chamar o bot.')
 	else:
@@ -149,6 +149,12 @@ async def heart(ctx):
 	await tocaraudio(ctx, 'audios/heart.mp3')
 
 @client.command(pass_context=True)
+async def turtle(ctx):
+	'toca a musica A Turtle Made It to the Water!'
+	# await tocaraudio(ctx, 'audios/turtle.mp3')
+	await ctx.send(turtle_emoji())
+
+@client.command(pass_context=True)
 async def ping(ctx):
 	'mostra o ping do bot com o servidor do discord'
 	before = time.monotonic()
@@ -178,12 +184,12 @@ async def about(ctx):
 
 	await ctx.send(content=f"ℹ Informações sobre o Bot: **{ctx.bot.user}**", embed=embed)
 
-@client.event
-async def on_command_error(ctx, exception):
-	if isinstance(exception, commands.CommandNotFound):
-		await ctx.send(embed=mensagem_formatada(titulo='\N{WARNING SIGN}Erro:', descricao=f'Comando: {ctx.message.content} não encontrado.'))
-	elif isinstance(exception, commands.MissingRequiredArgument):
-		await ctx.send('O comando precisa de um parametro')
+# @client.event
+# async def on_command_error(ctx, exception):
+# 	if isinstance(exception, commands.CommandNotFound):
+# 		await ctx.send(embed=mensagem_formatada(titulo='\N{WARNING SIGN}Erro:', descricao=f'Comando: {ctx.message.content} não encontrado.'))
+# 	elif isinstance(exception, commands.MissingRequiredArgument):
+# 		await ctx.send('O comando precisa de um parametro')
 
 @client.event
 async def on_ready():

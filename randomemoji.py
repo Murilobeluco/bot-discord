@@ -58,7 +58,7 @@ def random_emoji(unicode_version = 6):
 	emoji_range = emoji_ranges[emoji_range_idx]
 
 	point_in_range = point
-	if emoji_range_idx is not 0:
+	if emoji_range_idx != 0:
 		point_in_range = point - weight_distr[emoji_range_idx - 1]
 
 	emoji = chr(ord(emoji_range[0]) + point_in_range)
@@ -69,3 +69,21 @@ def random_emoji(unicode_version = 6):
 
 def desenho(emoji):
   return "⠀ ⠀ ⠀  :cowboy:\n　      {emoji}{emoji}\n    {emoji}   {emoji}　{emoji}\n   :wave:  {emoji}{emoji} :thumbsup:\n  　  {emoji}　{emoji}\n　   {emoji}　 {emoji}\n　     :boot:    :boot:\nSheriff feito de: '{emoji_nome}'".format(emoji=emoji[0], emoji_nome=emoji[2])
+
+def turtle_emoji():
+	return """:turtle::turtle::turtle::turtle::turtle::turtle::turtle: A
+:turtle: :turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: TURTLE
+:turtle: :turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: MADE
+:turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: IT
+:turtle::turtle:⚪️⚫️⚫️⚪️:turtle::turtle::turtle:⚪️⚫️⚫️⚪️ TO
+:turtle:⚪️⚫️⚫️⚪️⚫️⚪️:turtle:⚪️⚫️⚫️⚪️⚫️⚪️ THE
+:turtle:⚪️⚫️⚪️⚫️⚫️⚪️:turtle:⚪️⚫️⚪️⚫️⚫️⚪️ WATER
+:turtle::turtle:⚪️⚫️⚪️⚪️:turtle::turtle::turtle:⚪️⚫️⚪️⚪️ A
+:turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: TURTLE
+:red_circle::red_circle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: MADE
+:turtle::red_circle::red_circle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: IT
+:turtle::turtle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle: TO
+:turtle::turtle::turtle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle::red_circle: THE
+:turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: WAAAA
+:turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: TEEEEE
+:turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle::turtle: EERRRRR """
