@@ -132,6 +132,14 @@ async def saizica(ctx):
 	with open('img/titus.gif', 'rb') as fp:
 		await ctx.send(file=discord.File(fp, 'titus.gif'))
 
+@client.command(pass_context=True, aliases=['essencias', 'essences', 'iongod'])
+async def milagre(ctx):
+	'posta uma imagem de um milagre'
+	await tocaraudio(ctx, 'audios/milagre.mp3')
+	with open('img/essence.png', 'rb') as fp:
+		await ctx.send('A prova que milagres existem!')
+		await ctx.send(file=discord.File(fp, 'essence.png'))
+
 @client.command(pass_context=True)
 async def choras(ctx, arg1):
 	arquivo = cria_audio(arg1[:20])
