@@ -170,7 +170,7 @@ async def turtle(ctx):
 	await tocaraudio(ctx, 'audios/turtle.mp3')
 	await ctx.send(turtle_emoji())
 
-@client.command(aliases=['corona', 'virus', 'coronavirus'])
+@client.command(aliases=['corona', 'coronavirus'])
 async def virus(ctx):
 	'CoronaVirus'
 	await tocaraudio(ctx, 'audios/coronavirus.mp3')
