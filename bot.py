@@ -170,6 +170,13 @@ async def turtle(ctx):
 	await tocaraudio(ctx, 'audios/turtle.mp3')
 	await ctx.send(turtle_emoji())
 
+@client.command(aliases=['corona', 'virus', 'coronavirus'])
+async def virus(ctx):
+	'CoronaVirus'
+	await tocaraudio(ctx, 'audios/coronavirus.mp3')
+	with open('img/virus.gif', 'rb') as fp:
+		await ctx.send(file=discord.File(fp, 'virus.gif'))
+
 @client.command()
 async def ping(ctx):
 	'mostra o ping do bot com o servidor do discord'
