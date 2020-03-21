@@ -26,13 +26,27 @@ def lervariavel():
 		 raise Exception('Configurar variavel de ambinete TOKEN')
 	
 	return variavel
-	
-async def tocaraudio(ctx, audio=''):
+
+async def envia(ctx, arq):
+	with open(arq, 'rb') as fp:
+		await ctx.send(file=discord.File(fp, arq))
+
+def enviar_midia(ctx, arq=''):
+	def after_func(error):
+		if arq:
+			coro = envia(ctx, arq)
+			fut = asyncio.run_coroutine_threadsafe(coro, client.loop)
+			fut.result()
+
+	return after_func
+
+async def tocaraudio(ctx, audio='', arquivo=''):
 	if ctx.voice_client is None:
 		if not ctx.author.voice is None:
 			vc = await ctx.author.voice.channel.connect()
 			source = discord.FFmpegPCMAudio(source=audio)
-			ctx.voice_client.play(source)
+			
+			ctx.voice_client.play(source, after=enviar_midia(ctx=ctx, arq=arquivo))
 			
 			while vc.is_playing():
 				await asyncio.sleep(1)
@@ -116,17 +130,12 @@ async def tosco(ctx):
 @client.command()
 async def dorime(ctx):
 	'toca dorime'
-	await tocaraudio(ctx, 'audios/dorime.mp3')
-	with open('img/dorime.jpg', 'rb') as fp:
-		await ctx.send(file=discord.File(fp, 'dorime.jpg'))
+	await tocaraudio(ctx, 'audios/dorime.mp3', arquivo='img/dorime.jpg')
 
 @client.command()
 async def tururu(ctx):
 	'toca a musica triste do naruto'
-	await tocaraudio(ctx, 'audios/tururu.mp3')
-	with open('img/naruto.png', 'rb') as fp:
-		message = await ctx.send(file=discord.File(fp, 'naruto.png'))
-		await message.add_reaction('\N{LOUDLY CRYING FACE}')
+	await tocaraudio(ctx, 'audios/tururu.mp3', 'img/naruto.png')
 
 @client.command()
 async def gaucho(ctx):
@@ -136,17 +145,12 @@ async def gaucho(ctx):
 @client.command()
 async def saizica(ctx):
 	'toca um audio da boss galindra de lower karazhan'
-	await tocaraudio(ctx, 'audios/zica.mp3')
-	with open('img/titus.gif', 'rb') as fp:
-		await ctx.send(file=discord.File(fp, 'titus.gif'))
+	await tocaraudio(ctx, 'audios/zica.mp3', 'img/titus.gif')
 
 @client.command(aliases=['essencias', 'essences', 'iongod'])
 async def milagre(ctx):
 	'posta uma imagem de um milagre'
-	await tocaraudio(ctx, 'audios/milagre.mp3')
-	with open('img/essence.png', 'rb') as fp:
-		await ctx.send('A prova que milagres existem!')
-		await ctx.send(file=discord.File(fp, 'essence.png'))
+	await tocaraudio(ctx, 'audios/milagre.mp3', 'img/essence.png')
 
 @client.command()
 async def choras(ctx, arg1):
@@ -173,9 +177,7 @@ async def turtle(ctx):
 @client.command(aliases=['corona', 'coronavirus'])
 async def virus(ctx):
 	'CoronaVirus'
-	await tocaraudio(ctx, 'audios/coronavirus.mp3')
-	with open('img/virus.gif', 'rb') as fp:
-		await ctx.send(file=discord.File(fp, 'virus.gif'))
+	await tocaraudio(ctx, 'audios/coronavirus.mp3', arquivo='img/virus.gif')
 
 @client.command()
 async def ping(ctx):
