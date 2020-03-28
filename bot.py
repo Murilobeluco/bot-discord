@@ -165,6 +165,11 @@ async def heart(ctx):
 	await tocaraudio(ctx, 'audios/heart.mp3')
 
 @client.command()
+async def birl(ctx):
+	'Birl'
+	await tocaraudio(ctx, 'audios/birl.mp3')
+
+@client.command()
 async def turtle(ctx):
 	'toca a musica A Turtle Made It to the Water!'
 	await tocaraudio(ctx, 'audios/turtle.mp3')
