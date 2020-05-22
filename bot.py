@@ -100,7 +100,7 @@ async def nerfa(ctx):
 @client.command()
 async def machista(ctx):
 	'toca um audio da loly vomito'
-	await tocaraudio(ctx, 'audios/machista.mp3', arquivo='img/machista.jpg')
+	await tocaraudio(ctx, 'audios/machista.mp3', arquivo='img/machista.gif')
 
 @client.command()
 async def amanha(ctx):
