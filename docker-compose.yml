@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  bot-discord:
+    container_name: bot-discord
+    image: murilobeluco/bot-discord:inicio
+    restart: always
+    build: .
+    environment:
+      - TOKEN=CONFIGURAR-TOKEN-AQUI
+    working_dir: /bot-discord
+    volumes:
+      - /home/pi/bot-discord:/bot-discord
+    command: bash -c "python3 -u bot.py"
