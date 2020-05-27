@@ -199,6 +199,11 @@ async def brava(ctx):
 	'Luciana gimenes perguntando se voce esta brava!'
 	await tocaraudio(ctx, 'audios/brava.mp3')
 
+@client.command(aliases=['cenaotinhaquenemtaaquilinda', 'barraco'])
+async def tati(ctx):
+	'Tati quebra barraco dizendo: "voce nao tinha que nem estar aqui linda"'
+	await tocaraudio(ctx, 'audios/tati.mp3')
+
 @client.command()
 async def ping(ctx):
 	'mostra o ping do bot com o servidor do discord'
