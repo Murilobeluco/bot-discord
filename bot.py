@@ -202,7 +202,7 @@ async def brava(ctx):
 @client.command(aliases=['cenaotinhaquenemtaaquilinda', 'barraco'])
 async def tati(ctx):
 	'Tati quebra barraco dizendo: "voce nao tinha que nem estar aqui linda"'
-	await tocaraudio(ctx, 'audios/tati.mp3')
+	await tocaraudio(ctx, rng(['audios/tati.mp3'], ['audios/madame.mp3'], ['audios/gostocada.mp3'], ['audios/presidentetati.mp3']))
 
 @client.command()
 async def ping(ctx):
