@@ -194,6 +194,11 @@ async def virus(ctx):
 	'CoronaVirus'
 	await tocaraudio(ctx, 'audios/coronavirus.mp3', arquivo='img/virus.gif')
 
+@client.command(aliases=['braba', 'tadinha'])
+async def brava(ctx):
+	'Luciana gimenes perguntando se voce esta brava!'
+	await tocaraudio(ctx, 'audios/brava.mp3')
+
 @client.command()
 async def ping(ctx):
 	'mostra o ping do bot com o servidor do discord'
