@@ -3,7 +3,7 @@ version: "3"
 services:
   bot-discord:
     container_name: bot-discord
-    image: murilobeluco/bot-discord:inicio
+    image: python:3.8.3-alpine
     restart: always
     build: .
     environment:
@@ -11,4 +11,4 @@ services:
     working_dir: /bot-discord
     volumes:
       - /home/pi/bot-discord:/bot-discord
-    command: bash -c "python3 -u bot.py"
+    command: "python3 -u bot.py"
