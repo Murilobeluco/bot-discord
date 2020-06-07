@@ -82,6 +82,11 @@ async def blizz(ctx):
 	'toca um audio randômico que fala verdades sobre a blizzard.'
 	await tocaraudio(ctx, rng(['audios/infoblizzard.mp3', 'audios/wowbug.mp3', 'audios/wowbugado.mp3']))
 
+@client.command(aliases=['vegeta', 'dbz'])
+async def olha(ctx):
+	'toca um audio da dublagem portuguesa de dragonball z'
+	await tocaraudio(ctx, 'audios/olha.mp3')
+
 @client.command()
 async def bfa(ctx):
 	'toca um audio pedindo o que todo mundo deseja de bfa: ..... o seu FIM!'
