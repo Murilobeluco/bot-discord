@@ -1,6 +1,3 @@
 Como instalar/executa o bot
-Python 3.7
-instalar as dependencias do bot: pip install -r requirements.txt
-instalar ffmpeg
-configurar variavel de ambiente TOKEN com a info do bot
-executar no linux: nohup /CAMNINHODOBOT/bot.py &
+1º - adicionar no arquivo "docker-compose.yml" o token do bot
+2º - executar o comando "docker-compose up -d --build"
