@@ -188,6 +188,11 @@ async def padraodevida(ctx):
 	'Fitter Happier'
 	await tocaraudio(ctx, 'audios/FitterHappier.mp3')
 
+@client.command(aliases=['pedro', 'calouro'])
+async def fodo(ctx):
+	'Pedro Gordo Calouro'
+	await tocaraudio(ctx, 'audios/fodo.mp3')
+
 @client.command()
 async def turtle(ctx):
 	'toca a musica A Turtle Made It to the Water!'
