@@ -209,6 +209,11 @@ async def brava(ctx):
 	'Luciana gimenes perguntando se voce esta brava!'
 	await tocaraudio(ctx, 'audios/brava.mp3')
 
+@client.command()
+async def bichao(ctx):
+	'Você é o bichao mesmo em doido'
+	await tocaraudio(ctx, 'audios/bichao.mp3')
+
 @client.command(aliases=['deus', 'timming'])
 async def tempodedeus(ctx):
 	'God''s timing is always right'
