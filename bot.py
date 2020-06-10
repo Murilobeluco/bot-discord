@@ -191,7 +191,7 @@ async def padraodevida(ctx):
 @client.command(aliases=['pedro', 'calouro'])
 async def fodo(ctx):
 	'Pedro Gordo Calouro'
-	await tocaraudio(ctx, 'audios/fodo.mp3')
+	await tocaraudio(ctx, rng(['audios/fodo.mp3', 'audios/oralzinho.mp3']))
 
 @client.command()
 async def turtle(ctx):
