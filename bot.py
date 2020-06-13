@@ -110,7 +110,7 @@ async def machista(ctx):
 @client.command()
 async def amanha(ctx):
 	'toca um audio com a famosa frase do Semente quando é perguntado a ele se ele quer fazer ilha'
-	await tocaraudio(ctx, 'audios/amanha.mp3')
+	await tocaraudio(ctx, rng(['audios/amanha.mp3', 'audios/amanha1.mp3'])
 
 @client.command()
 async def livros(ctx):
