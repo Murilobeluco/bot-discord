@@ -163,8 +163,8 @@ async def milagre(ctx):
 	await tocaraudio(ctx, 'audios/milagre.mp3', 'img/essence.png')
 
 @client.command()
-async def choras(ctx, arg1):
-	arquivo = cria_audio(arg1[:20])
+async def falar(ctx, arg1):
+	arquivo = cria_audio(arg1)
 	await tocaraudio(ctx, arquivo)
 	await deleta_arquivo(arquivo)
 

@@ -16,7 +16,7 @@ def cria_audio(texto):
 	import tempfile, os
 
 	byte_stream = BytesIO()
-	tts = gTTS('Por que choras?!, {parametro}'.format(parametro=texto), lang='pt-br')
+	tts = gTTS('{parametro}'.format(parametro=texto), lang='pt-br')
 	tts.write_to_fp(byte_stream)
 	byte_stream.seek(0)
 	
