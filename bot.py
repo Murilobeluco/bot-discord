@@ -117,6 +117,11 @@ async def livros(ctx):
 	'toca um audio com a fala da boss Bella de lower Karazhan!'
 	await tocaraudio(ctx, 'audios/livros.mp3')
 
+@client.command(aliases=['fumamais'])
+async def fuma(ctx):
+	'Isso FUMA MAIS!!!!!'
+	await tocaraudio(ctx, 'audios/fuma.mp3')
+
 @client.command()
 async def valkyr(ctx):
 	'toca um audio em homenagem a um famoso druida que jogava cliando nas skill!'
