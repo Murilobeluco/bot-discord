@@ -122,6 +122,11 @@ async def fuma(ctx):
 	'Isso FUMA MAIS!!!!!'
 	await tocaraudio(ctx, 'audios/fuma.mp3')
 
+@client.command(aliases=['caipira'])
+async def parana(ctx):
+	'Toca um audio de uma paranaense'
+	await tocaraudio(ctx, 'audios/parana.mp3.mp3')
+
 @client.command()
 async def valkyr(ctx):
 	'toca um audio em homenagem a um famoso druida que jogava cliando nas skill!'
