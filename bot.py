@@ -125,7 +125,7 @@ async def fuma(ctx):
 @client.command(aliases=['caipira'])
 async def parana(ctx):
 	'Toca um audio de uma paranaense'
-	await tocaraudio(ctx, 'audios/parana.mp3.mp3')
+	await tocaraudio(ctx, 'audios/parana.mp3')
 
 @client.command()
 async def valkyr(ctx):
