@@ -74,8 +74,8 @@ async def qrcode(ctx, arg1):
 
 @client.command()
 async def pedra(ctx):
-   'toca um audio randômico chamando o grupo para fazer pedra.'
-   await tocaraudio(ctx, rng(['audios/caralhovamosfazerpedra.mp3', 'audios/cadepedra.mp3', 'audios/vamosfazerpedra.mp3']))
+	'toca um audio randômico chamando o grupo para fazer pedra.'
+	await tocaraudio(ctx, rng(['audios/caralhovamosfazerpedra.mp3', 'audios/cadepedra.mp3', 'audios/vamosfazerpedra.mp3']))
 
 @client.command()
 async def blizz(ctx):
@@ -175,7 +175,7 @@ async def milagre(ctx):
 @client.command()
 async def falar(ctx, arg1):
 	arquivo = cria_audio(arg1)
-    await asyncio.sleep(5)
+	await asyncio.sleep(5)
 	await tocaraudio(ctx, arquivo)
 	await deleta_arquivo(arquivo)
 
