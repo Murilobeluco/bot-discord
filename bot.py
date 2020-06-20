@@ -87,6 +87,14 @@ async def olha(ctx):
 	'toca um audio da dublagem portuguesa de dragonball z'
 	await tocaraudio(ctx, 'audios/olha.mp3')
 
+@client.command(aliases=['dolar'])
+async def cotacao(ctx):
+	'toca um audio com a cotação do dolar'
+	arquivo = cria_audio(busca_cotacao())
+	await asyncio.sleep(2)
+	await tocaraudio(ctx, arquivo)
+	await deleta_arquivo(arquivo)
+
 @client.command()
 async def bfa(ctx):
 	'toca um audio pedindo o que todo mundo deseja de bfa: ..... o seu FIM!'
@@ -175,7 +183,7 @@ async def milagre(ctx):
 @client.command()
 async def falar(ctx, arg1):
 	arquivo = cria_audio(arg1)
-	await asyncio.sleep(3)
+	await asyncio.sleep(2)
 	await tocaraudio(ctx, arquivo)
 	await deleta_arquivo(arquivo)
 
