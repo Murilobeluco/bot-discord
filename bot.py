@@ -175,6 +175,7 @@ async def milagre(ctx):
 @client.command()
 async def falar(ctx, arg1):
 	arquivo = cria_audio(arg1)
+    await asyncio.sleep(5)
 	await tocaraudio(ctx, arquivo)
 	await deleta_arquivo(arquivo)
 
