@@ -90,9 +90,11 @@ async def olha(ctx):
 @client.command(aliases=['dolar'])
 async def cotacao(ctx):
 	'toca um audio com a cotação do dolar'
-	arquivo = cria_audio(busca_cotacao())
+	texto = busca_cotacao()
+	arquivo = cria_audio(texto)
 	await asyncio.sleep(2)
 	await tocaraudio(ctx, arquivo)
+	await ctx.send(embed=mensagem_formatada(titulo=':moneybag:Cotação:', descricao=texto))
 	await deleta_arquivo(arquivo)
 
 @client.command()
