@@ -183,8 +183,8 @@ async def milagre(ctx):
 	await tocaraudio(ctx, 'audios/milagre.mp3', 'img/essence.png')
 
 @client.command()
-async def falar(ctx, arg1):
-	arquivo = cria_audio(arg1)
+async def falar(ctx, arg1, arg2='pt-br'):
+	arquivo = cria_audio(arg1, arg2)
 	await asyncio.sleep(2)
 	await tocaraudio(ctx, arquivo)
 	await deleta_arquivo(arquivo)

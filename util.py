@@ -10,13 +10,13 @@ def mensagem_formatada(titulo='',descricao=''):
 	em.description = descricao
 	return em
 
-def cria_audio(texto):
+def cria_audio(texto,lingua='pt-br'):
 	from gtts import gTTS
 	from io import BytesIO
 	import tempfile, os
 
 	byte_stream = BytesIO()
-	tts = gTTS('{parametro}'.format(parametro=texto), lang='pt-br')
+	tts = gTTS('{parametro}'.format(parametro=texto), lang=lingua)
 	tts.write_to_fp(byte_stream)
 	byte_stream.seek(0)
 	
