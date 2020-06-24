@@ -281,6 +281,8 @@ async def on_command_error(ctx, exception):
 		await ctx.send(embed=mensagem_formatada(titulo='\N{WARNING SIGN}Erro:', descricao=f'Comando: {ctx.message.content} não encontrado.'))
 	elif isinstance(exception, commands.MissingRequiredArgument):
 		await ctx.send('O comando precisa de um parametro')
+	elif isinstance(exception, commands.CommandInvokeError):
+		await ctx.send('Erro ao executar comando: ' + ctx.message.content + ' Erro Interno: ' + str(exception))
 
 @client.event
 async def on_ready():
