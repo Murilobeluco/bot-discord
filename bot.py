@@ -177,6 +177,11 @@ async def saizica(ctx):
 	'toca um audio da boss galindra de lower karazhan'
 	await tocaraudio(ctx, 'audios/zica.mp3', 'img/titus.gif')
 
+@client.command()
+async def triste(ctx):
+	'eu fico muito triste com uma noticia dessas'
+	await tocaraudio(ctx, 'audios/triste.mp3', 'img/triste.gif')
+
 @client.command(aliases=['essencias', 'essences', 'iongod'])
 async def milagre(ctx):
 	'posta uma imagem de um milagre'
