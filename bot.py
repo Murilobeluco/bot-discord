@@ -87,6 +87,11 @@ async def olha(ctx):
 	'toca um audio da dublagem portuguesa de dragonball z'
 	await tocaraudio(ctx, 'audios/olha.mp3')
 
+@client.command()
+async def cohab(ctx):
+	'toca um audio da Tulla Luana falando sobre a cohab'
+	await tocaraudio(ctx, 'audios/cohab.mp3')
+
 @client.command(aliases=['dolar'])
 async def cotacao(ctx):
 	'toca um audio com a cotação do dolar'
