@@ -1,3 +1,6 @@
 Como instalar/executa o bot
 1º - adicionar no arquivo "docker-compose.yml" o token do bot
 2º - executar o comando "docker-compose up -d --build"
+
+
+[![Run on Repl.it](https://repl.it/badge/github/Murilobeluco/bot-discord)](https://repl.it/github/Murilobeluco/bot-discord)
