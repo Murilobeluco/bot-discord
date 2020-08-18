@@ -1,2 +1,5 @@
-language = "python3"
-run = "python bot.py"
+language="python3"
+run="""
+export PATH="$PWD/node_modules/ffmpeg-static:$PATH"
+python bot.py
+"""
