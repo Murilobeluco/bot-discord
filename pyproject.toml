@@ -2,7 +2,7 @@
 name = "Bot-Discord"
 version = "0.1.0"
 description = ""
-authors = [Murilo <murilobeluco@yahoo.com>"]
+authors = "[Murilo <murilobeluco@yahoo.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
