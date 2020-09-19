@@ -250,6 +250,11 @@ async def tempodedeus(ctx):
 	'God''s timing is always right'
 	await tocaraudio(ctx, 'audios/tempodedeus.mp3')
 
+@commands.has_role(754441783362060289, 754441373582622811)
+@client.command(pass_context=True)
+async def kick(ctx, user:discord.Member):
+    await user.move_to(None)
+
 @client.command(aliases=['cenaotinhaquenemtaaquilinda', 'barraco'])
 async def tati(ctx):
 	'Tati quebra barraco dizendo: "voce nao tinha que nem estar aqui linda"'
@@ -284,7 +289,7 @@ async def about(ctx):
 	embed.add_field(name="💾 RAM", value=f"{ramUsage:.2f} MB", inline=True)
 
 	await ctx.send(content=f"ℹ Informações sobre o Bot: **{ctx.bot.user}**", embed=embed)
-
+	
 @client.event
 async def on_command_error(ctx, exception):
 	if isinstance(exception, commands.CommandNotFound):
@@ -293,6 +298,8 @@ async def on_command_error(ctx, exception):
 		await ctx.send('O comando precisa de um parametro')
 	elif isinstance(exception, commands.CommandInvokeError):
 		await ctx.send('Erro ao executar comando: ' + ctx.message.content + ' Erro Interno: ' + str(exception))
+	elif isinstance(exception, commands.errors.MissingRole):
+		await ctx.send('Você não tem permissão para usar esse comando!')
 
 @client.event
 async def on_ready():
