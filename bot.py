@@ -250,7 +250,7 @@ async def tempodedeus(ctx):
 	'God''s timing is always right'
 	await tocaraudio(ctx, 'audios/tempodedeus.mp3')
 
-@commands.has_role(754441783362060289, 754441373582622811)
+@commands.has_any_role(754441783362060289, 754441373582622811)
 @client.command(pass_context=True)
 async def kick(ctx, user:discord.Member):
     await user.move_to(None)
