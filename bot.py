@@ -300,7 +300,9 @@ async def on_command_error(ctx, exception):
 		await ctx.send('Erro ao executar comando: ' + ctx.message.content + ' Erro Interno: ' + str(exception))
 	elif isinstance(exception, commands.errors.MissingRole):
 		await ctx.send('Você não tem permissão para usar esse comando!')
-
+	elif isinstance(exception, commands.errors.MissingAnyRole):
+		await ctx.send('Você não tem permissão para usar esse comando!')
+		
 @client.event
 async def on_ready():
 	print('Bot')
