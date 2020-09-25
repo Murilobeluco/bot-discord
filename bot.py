@@ -152,6 +152,11 @@ async def valkyr(ctx):
 	'toca um audio em homenagem a um famoso druida que jogava cliando nas skill!'
 	await tocaraudio(ctx, 'audios/mare.mp3')
 
+@client.command(aliases=['diabo','satyrzinho'])
+async def satan(ctx):
+	'toca um audio do Satyrzinho Satanboy'
+	await tocaraudio(ctx, rng(['audios/mortoVivoVoador.mp3', 'audios/nazareno.mp3', 'audios/chapeuDeLata.mp3']))
+
 @client.command()
 async def oak(ctx):
 	'toca um audio com a fala do boss Oakheart de Darkheart Thicket.'
