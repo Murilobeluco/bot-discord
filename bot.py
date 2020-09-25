@@ -92,6 +92,11 @@ async def cohab(ctx):
 	'toca um audio da Tulla Luana falando sobre a cohab'
 	await tocaraudio(ctx, 'audios/cohab.mp3')
 
+@client.command()
+async def amigo(ctx):
+	'toca um audio do Satyrzinho Satanboy'
+	await tocaraudio(ctx, 'audios/amigo.mp3', arquivo='img/Satanboy.gif')
+
 @client.command(aliases=['dolar'])
 async def cotacao(ctx):
 	'toca um audio com a cotação do dolar'
