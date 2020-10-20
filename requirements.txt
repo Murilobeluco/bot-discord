@@ -1,5 +1,5 @@
-discord.py==1.4.1
-discord.py[voice]==1.4.1
+discord.py==1.5.1
+discord.py[voice]==1.5.1
 opuslib
 unicodedata2==11.0.0
 json_store_client
