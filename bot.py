@@ -3,7 +3,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
 from randomemoji import desenho, random_emoji, turtle_emoji
-from util import *
+from util import rng, busca_cotacao, cria_audio, mensagem_formatada, deleta_arquivo 
 from warcraftlogs import buscarLogs, atualizar_contador
 import asyncio
 import discord
