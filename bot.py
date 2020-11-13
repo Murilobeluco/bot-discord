@@ -34,7 +34,7 @@ async def envia(ctx, arq):
 
 
 def enviar_midia(ctx, arq=''):
-    def after_func():
+    def after_func(error):
         if arq:
             coro = envia(ctx, arq)
             fut = asyncio.run_coroutine_threadsafe(coro, client.loop)
@@ -307,7 +307,7 @@ async def tempodedeus(ctx):
 
 @commands.has_any_role(754441783362060289, 754441373582622811)
 @client.command(pass_context=True)
-async def kick(ctx, user: discord.Member):
+async def kick(user: discord.Member):
     await user.move_to(None)
 
 
