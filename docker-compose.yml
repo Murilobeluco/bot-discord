@@ -3,7 +3,6 @@ version: "3"
 services:
   bot-discord:
     container_name: bot-discord
-    image: python:3.8.3-alpine
     restart: always
     build: .
     environment:

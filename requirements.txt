@@ -1,10 +1,10 @@
 discord.py==1.5.1
-discord.py[voice]==1.5.1
+
 opuslib
-unicodedata2==11.0.0
+unicodedata2==13.0.0.post2
 json_store_client
 requests
 ffmpeg
-pynacl
+pynacl==1.4.0
 psutil
 gTTS
