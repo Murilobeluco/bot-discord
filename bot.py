@@ -299,6 +299,12 @@ async def bichao(ctx):
     await tocaraudio(ctx, 'audios/bichao.mp3')
 
 
+@client.command()
+async def paula(ctx):
+    """Paula e seus amigos"""
+    await tocaraudio(ctx, 'audios/paula.mp3')
+
+
 @client.command(aliases=['deus', 'timming'])
 async def tempodedeus(ctx):
     """God''s timing is always right"""
