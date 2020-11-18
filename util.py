@@ -2,7 +2,7 @@ def rng(lista):
 	import random
 	escolha = random.choice(lista)
 	if escolha == retorna_ultimo_rng():
-		escolha = random.choice(lista)
+		escolha = rng(lista)
 	salvar_rng(escolha)
 	return escolha
 
@@ -26,15 +26,15 @@ def cria_audio(texto, lingua='pt-br'):
 	tts.write_to_fp(byte_stream)
 	byte_stream.seek(0)
 
-	tempFile, tempPath = tempfile.mkstemp(suffix='.mp3')
-	with open(tempPath, mode='wb') as file:
+	temp_file, temp_path = tempfile.mkstemp(suffix='.mp3')
+	with open(temp_path, mode='wb') as file:
 		byte_stream.seek(0)
 		file.write(byte_stream.read())
 		file.flush()
 
-	os.close(tempFile)
+	os.close(temp_file)
 	byte_stream.close()
-	return tempPath
+	return temp_path
 
 
 def busca_cotacao():
