@@ -2,7 +2,7 @@
 from discord.ext import commands
 from discord.ext.commands import Bot
 from randomemoji import desenho, random_emoji, turtle_emoji
-from util import rng, busca_cotacao, cria_audio, mensagem_formatada, deleta_arquivo
+from util import rng, busca_cotacao, cria_audio, mensagem_formatada, deleta_arquivo, str_qrcode, encurtar_url, retorna_link_youtube
 from warcraftlogs import buscarLogs
 import asyncio
 import discord
@@ -37,6 +37,7 @@ def enviar_midia(ctx, arq=''):
     def after_func(error):
         if arq:
             coro = envia(ctx, arq)
+            print(error)
             fut = asyncio.run_coroutine_threadsafe(coro, client.loop)
             fut.result()
 
@@ -71,12 +72,18 @@ async def sheriff(ctx):
 
 
 @client.command()
+async def link(ctx, arg1):
+    """retorna um link direto para download do youtube."""
+    resultado = encurtar_url(retorna_link_youtube(arg1))
+    await ctx.send(embed=mensagem_formatada(titulo='Link para Download', descricao=f'Video: {arg1}', url=resultado, imagem_url=str_qrcode(resultado)))
+
+
+@client.command()
 async def qrcode(ctx, arg1):
     e = discord.Embed()
     texto = urllib.parse.quote_plus(arg1)
     e.set_image(
-        url='http://api.qrserver.com/v1/create-qr-code/?color=9EFFC5&bgcolor=000000&data={'
-            'param}&qzone=3&margin=0&size=450x450&ecc=M'.format(param=texto))
+        url=str_qrcode(texto))
     await ctx.send(embed=e)
 
 

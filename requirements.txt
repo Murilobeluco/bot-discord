@@ -7,3 +7,4 @@ pynacl==1.4.0
 requests
 psutil
 gTTS
+youtube_dl
