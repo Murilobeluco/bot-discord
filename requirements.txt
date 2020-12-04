@@ -1,9 +1,8 @@
 discord.py==1.5.1
 opuslib
-unicodedata2==13.0.0.post2
-json_store_client
+unicodedata2
 ffmpeg
-pynacl==1.4.0
+pynacl
 requests
 psutil
 gTTS
