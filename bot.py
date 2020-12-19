@@ -3,13 +3,13 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from randomemoji import desenho, random_emoji, turtle_emoji
 from util import rng, busca_cotacao, cria_audio, mensagem_formatada, deleta_arquivo, str_qrcode, encurtar_url, retorna_link_youtube
-# from warcraftlogs import buscarLogs
 import asyncio
 import discord
 import os
 import time
 import psutil
 import urllib.parse
+import raider
 
 BOT_PREFIX = '!'
 
@@ -244,7 +244,16 @@ async def milagre(ctx):
 
 
 @client.command()
+async def personagem(ctx, arg1):
+    """Retorna Informações sobre personagem"""
+    nome = arg1[:arg1.find('/')]
+    reino = arg1[arg1.find('/')+1:]
+    await ctx.send(embed=raider.informacao(nome, reino))
+
+
+@client.command()
 async def falar(ctx, arg1, arg2='pt-br'):
+    """Faz o bot falar"""
     arquivo = cria_audio(arg1, arg2)
     await asyncio.sleep(2)
     await tocaraudio(ctx, arquivo)
