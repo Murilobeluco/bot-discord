@@ -10,7 +10,9 @@ def informacao(personagem, reino):
         if resposta.status_code == 200:
             json_resposta = resposta.json()
 
-            dados_personagem = (f'{json_resposta["name"]} Spec: {json_resposta["active_spec_name"]} '
+            dados_personagem = (f'Nome: {json_resposta["name"]}'
+                                f'{os.linesep}'
+                                f'Spec: {json_resposta["active_spec_name"]} '
                                 f'{os.linesep}'
                                 f'Covenant: {json_resposta["covenant"]["name"]}'
                                 f'{os.linesep}'
