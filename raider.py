@@ -39,7 +39,7 @@ def informacao(personagem, reino):
                           f'{os.linesep}'
                           f'Heroico: {str(json_resposta["raid_progression"]["castle-nathria"]["heroic_bosses_killed"])}'
                           f'{os.linesep}'
-                          f'Mítico: {str(json_resposta["raid_progression"]["castle-nathria"]["heroic_bosses_killed"])}'
+                          f'Mítico: {str(json_resposta["raid_progression"]["castle-nathria"]["mythic_bosses_killed"])}'
                           )
 
             embed = discord.Embed(color=0xbe2f2f, title=f"Informação sobre o personagem")
